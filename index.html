@@ -1,0 +1,319 @@
+<!DOCTYPE html> 
+ <html lang="en"> 
+  
+ <head> 
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Challenge</title> 
+   <style> 
+     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+     @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); 
+  
+     body { 
+       font-family: 'Poppins', sans-serif; 
+       justify-content: center; 
+       align-items: center; 
+       height: 100vh; 
+       margin: 0; 
+       background-color: #f4f4f4; 
+     } 
+  
+     nav { 
+       background-color: #333; 
+       color: #fff; 
+       padding: 10px 0; 
+     } 
+  
+     ul { 
+       list-style-type: none; 
+       margin: 0; 
+       padding: 0; 
+       display: flex; 
+       justify-content: end; 
+     } 
+  
+     li { 
+       margin: 0 15px; 
+       padding: 1rem 0; 
+     } 
+  
+     a { 
+       padding: 1rem; 
+       text-decoration: none; 
+       color: #fff; 
+       font-weight: bold; 
+       transition: color 0.3s; 
+     } 
+  
+     a:hover { 
+       color: #008080; 
+       border-bottom: 1px solid #008080; 
+       border-collapse: collapse; 
+       border-radius: 10px; 
+     } 
+  
+     .container { 
+       display: flex; 
+       /* align-items: center; */ 
+       justify-content: center; 
+       padding: 20px; 
+       margin: 20px; 
+       background-color: white; 
+       border-radius: 6px; 
+       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+     } 
+  
+     .left img { 
+       margin: 0 1.3rem 0 5rem; 
+       border-radius: 100%; 
+       z-index: 1; 
+       border: 6px solid #008080; 
+       transition: transform 3s ease-in-out, 
+         scale 2.3s ease-in-out, 
+         border-radius 2.6s ease-in-out, 
+         filter 2s ease-in-out, 
+         border 2.5s ease-in-out; 
+     } 
+  
+     .left:hover img { 
+       transform: scale(2.4) rotate(-3600deg) translate(170px, 50px); 
+       z-index: 9; 
+       position: relative; 
+       border-radius: 10%; 
+       border: 6px dashed #ba03fc; 
+     } 
+  
+     .mid { 
+       margin: 0 20px; 
+       width: 30rem; 
+       position: relative; 
+       /* border-right: 3px solid #008080; */ 
+       padding-right: 20px; 
+     } 
+  
+     .mid:after { 
+       content: ""; 
+       height: 87%; 
+       display: block; 
+       border-left: 3px solid #008080; 
+       position: absolute; 
+       right: 0; 
+       top: 87%; 
+       transform: translateY(-95%); 
+     } 
+  
+     .mid .nama { 
+       font-family: 'Kaushan Script', cursive; 
+       font-size: 40px; 
+       font-weight: bold; 
+       color: #008080; 
+     } 
+  
+     .mid .nama .changed { 
+       animation: nameChanger 5s infinite; 
+     } 
+  
+     @keyframes nameChanger { 
+       25% { 
+         color: red; 
+         text-shadow: 3px 3px 8px grey; 
+       } 
+  
+       50% { 
+         color: green; 
+         text-shadow: 0px 0px 0px grey; 
+       } 
+  
+       75% { 
+         color: purple; 
+         text-shadow: 3px 3px 8px grey; 
+       } 
+     } 
+  
+     .mid .skill { 
+       color: grey; 
+       padding-top: .25rem; 
+       /* border-top: 1px solid grey; */ 
+     } 
+  
+     .right { 
+       border-collapse: collapse; 
+       width: 100%; 
+     } 
+  
+     .right tr { 
+       transition: transform .8s ease-in-out, color .8s; 
+     } 
+  
+     .right:hover tr { 
+       transform: rotateY(360deg); 
+       color: #008080; 
+     } 
+  
+     .data { 
+       padding: 8px; 
+     } 
+  
+     td.data { 
+       width: 17%; 
+       font-weight: bold; 
+     } 
+  
+     td.value { 
+       padding: 8px; 
+     } 
+  
+     .btn-link { 
+       margin-top: 1.5rem; 
+     } 
+  
+     .btn-link p { 
+       padding: .7rem .9rem; 
+       display: inline-block; 
+       border: 1px solid #008080; 
+       border-radius: 6px; 
+     } 
+  
+     .btn-link .solid { 
+       margin-right: 8px; 
+       background: #008080; 
+       color: white; 
+       transition: transform 2.2s ease-in-out; 
+     } 
+  
+     .btn-link .outline { 
+       border: 1px solid #008080; 
+       color: #008080; 
+       transition: transform 2.2s ease-in-out; 
+       transition-delay: .2s; 
+     } 
+  
+     .btn-link:hover .outline { 
+       transform: scale(4) translate(-30px, 60px) rotate(360deg); 
+     } 
+  
+     .btn-link:hover .solid { 
+       transform: scale(4) translate(80px, 60px) rotate(-360deg); 
+     } 
+  
+     .form-input { 
+       width: 100%; 
+       background-color: white; 
+       padding: 15px; 
+       border-radius: 6px; 
+     } 
+  
+     .form-input label { 
+       display: block; 
+       margin-bottom: 8px; 
+     } 
+  
+     .form-input h3 { 
+       font-size: 25px; 
+     } 
+  
+     .form-input input { 
+       width: 99%; 
+       padding: 8px; 
+       border: 1px solid #ddd; 
+       border-radius: 6px; 
+       margin-bottom: 15px; 
+     } 
+  
+     .form-input button[type="submit"] { 
+       width: 100%; 
+       background-color: #008080; 
+       color: white; 
+       border: none; 
+       font-size: 20px; 
+       padding: .7rem .9rem; 
+       border-radius: 6px; 
+       cursor: pointer; 
+       transition: background-color 0.3s, transform 2s, rotate 1s ease-in-out; 
+       transition-delay: 1.6s; 
+     } 
+  
+     .form-input:hover button[type="submit"] { 
+       background-color: #004d4d; 
+       transform: translateY(-1500px) rotate(1800deg) scale(0); 
+     } 
+   </style> 
+ </head> 
+  
+ <body> 
+   <nav> 
+     <ul> 
+       <li><a href="#home">HOME</a></li> 
+       <li><a href="#product">PRODUCT</a></li> 
+       <li><a href="#gallery">GALLERY</a></li> 
+       <li><a href="#blog">BLOG</a></li> 
+       <li><a href="#inventory">MY INVENTORY</a></li> 
+     </ul> 
+   </nav> 
+   <div class="container"> 
+     <div class="left"> 
+       <img src="https://source.unsplash.com/200x200?person" alt="Foto Profil" width="200"> 
+     </div> 
+     <div class="mid"> 
+       <div class="nama">Ari <span class="changed">Zidane</span></div> 
+       <div class="skill">Web Developer</div> 
+       <div class="btn-link"> 
+         <p class="solid">Kontak</p> 
+         <p class="outline">Resume</p> 
+       </div> 
+     </div> 
+     <table class="right"> 
+       <tr> 
+         <td class="data">Availability</td> 
+         <td class="value">Full Time</td> 
+       </tr> 
+       <tr> 
+         <td class="data">Usia</td> 
+         <td class="value">22 Thn</td> 
+       </tr> 
+       <tr> 
+         <td class="data">Lokasi</td> 
+         <td class="value">Lamongan</td> 
+       </tr> 
+       <tr> 
+         <td class="data">Pengalaman</td> 
+         <td class="value">2 Thn</td> 
+       </tr> 
+       <tr> 
+         <td class="data">Email</td> 
+         <td class="value">zidanerizal17@gmail.com</td> 
+       </tr> 
+     </table> 
+   </div> 
+   <div class="container"> 
+     <div class="form-input"> 
+       <h3>FORM INPUT</h3> 
+       <form action="" method="get" accept-charset="utf-8"> 
+         <div class="wrapper"> 
+           <label for="nama">Nama</label> 
+           <input type="text" name="nama" id="nama" placeholder="Masukkan nama kamu" /> 
+           <label for="skill">Keahlian</label> 
+           <input type="text" name="skill" id="skill" placeholder="Masukkan keahlian di bidangmu" /> 
+           <label for="availability">Ketersediaan</label> 
+           <select type="text" name="availability" id="availability" 
+             style="width: 100%; padding: .50rem 0; border: 1px solid #ddd; border-radius: 6px; padding: 8px; background-color: transparent; color: grey;"> 
+             <option value="default">Pilih jam kerja kamu</option> 
+             <option value="Full Time">Full Time</option> 
+             <option value="Part Time">Part Time</option> 
+           </select> 
+           <label for="umur">Umur</label> 
+           <input type="number" name="umur" id="umur" placeholder="Masukkan umur kamu" /> 
+           <label for="lokasi">Lokasi</label> 
+           <input type="text" name="lokasi" id="lokasi" placeholder="Masukkan lokasi kamu" /> 
+           <label for="yex">Pengalaman (tahun)</label> 
+           <input type="number" name="yex" id="yex" placeholder="Masukkan pengalamanmu (tahun)" /> 
+           <label for="email">Email</label> 
+           <input type="email" name="email" id="email" placeholder="Masukkan email kamu" /> 
+           <button type="submit">Kirim</button> 
+         </div> 
+       </form> 
+     </div> 
+   </div> 
+ </body> 
+  
+ </html>
